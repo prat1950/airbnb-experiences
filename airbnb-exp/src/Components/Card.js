@@ -19,23 +19,39 @@ Notes:
   this data into the component.
 */
 
-export default function Card() {
+export default function Card(props) {
     return (
-        <div>
-            <img src="./images/image_12.png" className=""></img>
-            <div className="flex pt-0.5">
-                <img src="./images/Star 1.png" className="mr-1.5 h-5"></img>
-                <span className="flex my-auto mr-1">5.0</span>
-                <span className="flex align-middle text-gray-400 mr-1">(6) • </span>
-                <span className="flex align-middle text-gray-400">USA</span>
+        <div className="p-5 mx-auto">
+            <div className="relative">
+                {props.openSpots === 0 && (
+                    <div className="bg-gray-200 text-black text-white text-center absolute top-0 left-0 p-1 m-2 rounded font-bold ">SOLD OUT</div>
+                    )}
+                <img src={`./images/${props.img}`} className="w-80" alt="Product" />
             </div>
+            <div className="flex pt-2">
+                <img src="./images/Star 1.png" className="mr-1.5 h-5"></img>
+                <span className="flex my-auto mr-1">{props.rating}</span>
+                <span className="flex align-middle text-gray-400 mr-1">({props.reviewCount}) • </span>
+                <span className="text-gray-400">{props.location}</span>
+                
+            </div>
+        
             <p>
-                Life Lessons with a Katie Zaferes<br></br>
+                {props.title}<br></br>
             </p>
             <span className="pt-1 font-bold">
-                From $136
+            {`From $${props.price}`}
+
             </span>
             /person
+            <span className="flex text-gray-400 ">{props.openSpots} spots left</span>
         </div>
     )
 }
+
+// img="image_12.png"
+//                 rating="5.0"
+//                 reviewCount={6}
+//                 country="USA"
+//                 title="Life Lessons with Katie Zaferes"
+//                 price={136}
