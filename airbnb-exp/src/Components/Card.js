@@ -23,35 +23,35 @@ export default function Card(props) {
     return (
         <div className="p-5 mx-auto">
             <div className="relative">
-                {props.openSpots === 0 && (
+                {props.item.openSpots === 0 && (
                     <div className="bg-gray-200 text-black text-white text-center absolute top-0 left-0 p-1 m-2 rounded font-bold ">SOLD OUT</div>
                     )}
-                <img src={`./images/${props.img}`} className="w-80" alt="Product" />
+                <img src={`./images/${props.item.coverImg}`} className="w-80" alt="Product" />
             </div>
             <div className="flex pt-2">
                 <img src="./images/Star 1.png" className="mr-1.5 h-5"></img>
-                <span className="flex my-auto mr-1">{props.rating}</span>
-                <span className="flex align-middle text-gray-400 mr-1">({props.reviewCount}) • </span>
-                <span className="text-gray-400">{props.location}</span>
+                <span className="flex my-auto mr-1">{props.item.stats.rating}</span>
+                <span className="flex align-middle text-gray-400 mr-1">({props.item.stats.reviewCount}) • </span>
+                <span className="text-gray-400">{props.item.location}</span>
                 
             </div>
         
             <p>
-                {props.title}<br></br>
+                {props.item.title}<br></br>
             </p>
             <span className="pt-1 font-bold">
-            {`From $${props.price}`}
+            {`From $${props.item.price}`}
 
             </span>
             /person
-            <span className="flex text-gray-400 ">{props.openSpots} spots left</span>
+            <span className="flex text-gray-400 ">{props.item.openSpots} spots left</span>
         </div>
     )
 }
-
-// img="image_12.png"
-//                 rating="5.0"
-//                 reviewCount={6}
-//                 country="USA"
-//                 title="Life Lessons with Katie Zaferes"
-//                 price={136}
+// img={item.coverImg}
+          // rating={item.stats.rating}
+          // reviewCount={item.stats.reviewCount}
+          // location={item.location}
+          // title={item.title}
+          // price={item.price}
+          // openSpots={item.openSpots}
